@@ -7,12 +7,15 @@ public class Board {
     int initialPositionY = 1;
 
     Horse horse =  new Horse(initialPositionX,initialPositionY);
+
+
     public Board(Board[][] board) {
         this.board = board;
     }
 
 
-    public void moveTo(int X, int Y)
+    public void tryMoves(){
 
+    }
 
 }
