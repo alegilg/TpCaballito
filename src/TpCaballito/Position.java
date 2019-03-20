@@ -6,8 +6,9 @@ public class Position<T> implements Stack<T> {
     int[] data;
 
 
-    public Position(int x, int y)
+    public Position(int x)
     {
+
 
     }
     @Override
