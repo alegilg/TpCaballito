@@ -1,5 +1,5 @@
 package TpCaballito;
 
-public class Stack {
+public interface Stack <T> {
     
 }

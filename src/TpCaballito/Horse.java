@@ -8,4 +8,18 @@ public class Horse {
         this.positionX = positionX;
         this.positionY = positionY;
     }
+
+    public void moveTo(int X,int y)
+    {
+        positionX = X;
+        positionY = y;
+    }
+
+    public int getPositionX() {
+        return positionX;
+    }
+
+    public int getPositionY() {
+        return positionY;
+    }
 }
