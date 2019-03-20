@@ -12,4 +12,7 @@ public class Board {
     }
 
 
+    public void moveTo(int X, int Y)
+
+
 }
