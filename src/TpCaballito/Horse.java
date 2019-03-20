@@ -9,7 +9,7 @@ public class Horse {
         this.positionY = positionY;
     }
 
-    public void moveTo(int X,int y)
+    public void changePosition(int X,int y)
     {
         positionX = X;
         positionY = y;

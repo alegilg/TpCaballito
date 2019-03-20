@@ -12,7 +12,10 @@ public class Board {
     }
 
 
-    public void moveTo(int X, int Y)
+    public void moveTo(int x, int y)
+    {
+        horse.changePosition(x,y);
+    }
 
 
 }
