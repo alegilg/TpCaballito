@@ -1,14 +1,14 @@
 package TpCaballito;
 
 public class Board {
-    Board[][] board;
+    Board[][] board = new Board[8][8];
 
-    int initialPositionX = 1;
-    int initialPositionY = 1;
+    int initialPositionX = 0;
+    int initialPositionY = 0;
+
 
     Horse horse =  new Horse(initialPositionX,initialPositionY);
-    Position position;
-
+    Position position = new Position(8);
 
     public Board(Board[][] board) {
         this.board = board;
@@ -16,7 +16,8 @@ public class Board {
 
 
     public void tryMoves(){
-        for (int i = 0; i < horse.moveset.size() ; i++) {
+        for (int i = 0; i < board.length ; i++) {
+
 
         }
 
