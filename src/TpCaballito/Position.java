@@ -11,7 +11,6 @@ public class Position<T> implements Stack<T> {
         top = -1;
         capacity = x;
         data = new Object[capacity];
-
     }
     @Override
     public void push(T t) {

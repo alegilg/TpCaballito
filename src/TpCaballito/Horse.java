@@ -35,10 +35,14 @@ public class Horse {
 
     }
 
-    public void changePosition(Vector vector)
-    {
+    public void changePosition(Vector vector){
         positionX = positionX + vector.getX();
         positionY = positionY + vector.getY();
+    }
+
+    public void backToPosition(Vector vector){
+        positionX = positionX - vector.getX();
+        positionY = positionY - vector.getY();
     }
 
     public int getPositionX() {
@@ -52,5 +56,13 @@ public class Horse {
     public List getMoves()
     {
         return moveset;
+    }
+
+    public void setPositionX(int positionX) {
+        this.positionX = positionX;
+    }
+
+    public void setPositionY(int positionY) {
+        this.positionY = positionY;
     }
 }
