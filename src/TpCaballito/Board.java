@@ -7,7 +7,7 @@ public class Board {
     int initialPositionY = 1;
 
     Horse horse =  new Horse(initialPositionX,initialPositionY);
-    Position position = new Position();
+    Position position;
 
 
     public Board(Board[][] board) {
