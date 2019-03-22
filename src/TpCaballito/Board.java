@@ -1,7 +1,9 @@
 package TpCaballito;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Board {
-    Board[][] board = new Board[8][8];
 
     int initialPositionX = 0;
     int initialPositionY = 0;
@@ -13,8 +15,11 @@ public class Board {
     Position position3 = new Position(8);
     Position position4 = new Position(8);
 
-    public Board(Board[][] board) {
-        this.board = board;
+    List<String> move1= new ArrayList<>();
+
+    public Board(int x, int y) {
+      int [][] board = new int[x][y];
+
     }
 
 //    public void killHorse(){
@@ -24,17 +29,20 @@ public class Board {
 //        }
 //    }
 
-    public void tryMoves(){
+    public  List tryMoves(){
+        String s = "";
         for (int i = 0; i < horse.moveset.size() ; i++) {
             horse.changePosition(horse.moveset.get(i));
             if(horse.getPositionX()>0 & horse.getPositionY()>0 & horse.getPositionY()<=8 & horse.getPositionX()<=8 ){
                position.push(horse.moveset.get(i));
-               tryMoves2();
-               horse.backToPosition(horse.moveset.get(i));
+               s = "{" + horse.getPositionX() + ";" + horse.getPositionY() + "}";
+               move1.add(s);
                 }
-
+            horse.backToPosition(horse.moveset.get(i));
 
             }
+
+            return move1;
 
     }
 
