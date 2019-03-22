@@ -15,7 +15,8 @@ public class Board {
     Position position3 = new Position(8);
     Position position4 = new Position(8);
 
-    List<String> move1= new ArrayList<>();
+    List<String> move1 = new ArrayList<>();
+    List<String> move2 = new ArrayList<>();
 
     public Board(int x, int y) {
       int [][] board = new int[x][y];
@@ -35,6 +36,7 @@ public class Board {
             horse.changePosition(horse.moveset.get(i));
             if(horse.getPositionX()>0 & horse.getPositionY()>0 & horse.getPositionY()<=8 & horse.getPositionX()<=8 ){
                position.push(horse.moveset.get(i));
+               tryMoves2();
                s = "{" + horse.getPositionX() + ";" + horse.getPositionY() + "}";
                move1.add(s);
                 }
@@ -46,16 +48,21 @@ public class Board {
 
     }
 
-    public void tryMoves2() {
+    public List tryMoves2() {
+        String s = "";
         for (int i = 0; i < horse.moveset.size(); i++) {
             horse.changePosition(horse.moveset.get(i));
             if (horse.getPositionX() >= 0 & horse.getPositionY() >= 0 & horse.getPositionY() <= 7 & horse.getPositionX() <= 7) {
                 position2.push(horse.moveset.get(i));
                 tryMoves3();
-                horse.backToPosition(horse.moveset.get(i));
+                s = "{" + horse.getPositionX() + ";" + horse.getPositionY() + "}";
+                move2.add(s);
+
             }
+            horse.backToPosition(horse.moveset.get(i));
 
         }
+        return move2;
     }
 
     public void tryMoves3() {
