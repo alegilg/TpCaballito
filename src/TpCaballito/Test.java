@@ -8,6 +8,7 @@ public class Test
         System.out.println(board.tryMoves());
         System.out.println(board.tryMoves2());
         System.out.println(board.tryMoves3());
+        System.out.println(board.tryMoves4());
 
     }
 }

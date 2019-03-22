@@ -18,6 +18,7 @@ public class Board {
     List<String> move1 = new ArrayList<>();
     List<String> move2 = new ArrayList<>();
     List<String> move3 = new ArrayList<>();
+    List<String> move4 = new ArrayList<>();
 
     public Board(int x, int y) {
       int [][] board = new int[x][y];
@@ -76,7 +77,7 @@ public class Board {
             horse.changePosition(horse.moveset.get(i));
             if (horse.getPositionX() >= 0 & horse.getPositionY() >= 0 & horse.getPositionY() <= 7 & horse.getPositionX() <= 7) {
                 position3.push(horse.moveset.get(i));
-                //tryMoves4();
+                tryMoves4();
                 s= "{" + horse.getPositionX() + ";" + horse.getPositionY() + "}";
                 move3.add(s);
 
@@ -92,14 +93,23 @@ public class Board {
         return move3;
     }
 
-    public void tryMoves4() {
+    public List tryMoves4() {
+        String s = "";
         for (int i = 0; i < horse.moveset.size(); i++) {
             horse.changePosition(horse.moveset.get(i));
             if (horse.getPositionX() >= 0 & horse.getPositionY() >= 0 & horse.getPositionY() <= 7 & horse.getPositionX() <= 7) {
                 position4.push(horse.moveset.get(i));
-                horse.backToPosition(horse.moveset.get(i));
+                s = "{" + horse.getPositionX() + ";" + horse.getPositionY() + "}";
+                move4.add(s);
+
             }
+            horse.backToPosition(horse.moveset.get(i));
+
         }
+        if(move4.containsAll(move3)){move4.removeAll(move3);}
+        if(move4.containsAll(move2)){move4.removeAll(move2);}
+        if(move4.containsAll(move1)){move4.removeAll(move1);}
+        return move4;
     }
 
 }
