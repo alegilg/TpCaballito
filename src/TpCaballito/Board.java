@@ -17,6 +17,7 @@ public class Board {
 
     List<String> move1 = new ArrayList<>();
     List<String> move2 = new ArrayList<>();
+    List<String> move3 = new ArrayList<>();
 
     public Board(int x, int y) {
       int [][] board = new int[x][y];
@@ -34,7 +35,7 @@ public class Board {
         String s = "";
         for (int i = 0; i < horse.moveset.size() ; i++) {
             horse.changePosition(horse.moveset.get(i));
-            if(horse.getPositionX()>0 & horse.getPositionY()>0 & horse.getPositionY()<=8 & horse.getPositionX()<=8 ){
+            if(horse.getPositionX()>0 & horse.getPositionY()>0 & horse.getPositionY()<=7 & horse.getPositionX()<=7 ){
                position.push(horse.moveset.get(i));
                tryMoves2();
                s = "{" + horse.getPositionX() + ";" + horse.getPositionY() + "}";
@@ -58,22 +59,37 @@ public class Board {
                 s = "{" + horse.getPositionX() + ";" + horse.getPositionY() + "}";
                 move2.add(s);
 
+
             }
             horse.backToPosition(horse.moveset.get(i));
 
         }
+        if (move2.containsAll(move1)) {
+            move2.removeAll(move1);
+        }
         return move2;
     }
 
-    public void tryMoves3() {
+    public List tryMoves3() {
+        String s = "";
         for (int i = 0; i < horse.moveset.size(); i++) {
             horse.changePosition(horse.moveset.get(i));
             if (horse.getPositionX() >= 0 & horse.getPositionY() >= 0 & horse.getPositionY() <= 7 & horse.getPositionX() <= 7) {
                 position3.push(horse.moveset.get(i));
-                tryMoves4();
-                horse.backToPosition(horse.moveset.get(i));
+                //tryMoves4();
+                s= "{" + horse.getPositionX() + ";" + horse.getPositionY() + "}";
+                move3.add(s);
+
             }
+            horse.backToPosition(horse.moveset.get(i));
+
+
+
         }
+
+        if(move3.containsAll(move2)){move3.removeAll(move2);}
+        if(move3.containsAll(move1)){move3.removeAll(move1);}
+        return move3;
     }
 
     public void tryMoves4() {

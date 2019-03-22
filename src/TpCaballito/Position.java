@@ -56,7 +56,7 @@ public class Position<T> implements Stack<T> {
     }
 
     private void grow(){
-        Object[] data2 = new Object[2*capacity];
+        Object[] data2 = new Object[10*capacity];
         for (int i =0; i<capacity;i++){
             data2[i] = data[i];
         }
